@@ -20,7 +20,15 @@ parser = argparse.ArgumentParser(description="Track new subdomains")
 parser.add_argument("masterFile", help="Master subdomain list")
 parser.add_argument("newFile", help="New subdomain list")
 parser.add_argument("-d", "--domain", help="Domain to run through sublist3r")
+parser.add_argument("-v", "--verbose", help="Verbose output")
 args = parser.parse_args()
+
+#Intro output
+if args.verbose:
+    print("********************")
+    print("subcompare.py")
+    print("By: @thecodyskinner")
+    print("********************")
 
 #Run sublist3r
 if args.domain:
@@ -48,7 +56,11 @@ for line in added:
         subdomains.append(line)
         addLine = open(args.masterFile, 'a')
         addLine.write(line)
+        if args.verbose:
+            print(line)
 if newdomains != 0:
+    if args.verbose:
+        print("New subdomains found, pushing to Slack")
     slack_data = 'New Subdomains Found! \n' + ''.join(subdomains)
     response = requests.post(
             webhook, data=json.dumps({'text': slack_data}),
