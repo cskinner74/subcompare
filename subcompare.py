@@ -29,6 +29,7 @@ if args.verbose:
     print("subcompare.py")
     print("By: @thecodyskinner")
     print("********************")
+    print("Track changes in subdomains for a target")
 
 #Run sublist3r
 if args.domain:
