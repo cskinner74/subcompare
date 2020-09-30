@@ -1,4 +1,4 @@
-# SUBCOMPARE
+# subcompare
 
 A simple tool that can be scheduled to run in the background to track changes to target subdomains. Made this to run on a schedule to automate subdomain discovery.
 New subdomains are pushed to a slack webhook.
@@ -17,3 +17,4 @@ Schedule sublist3r to scan a domain and output the results to a new file.
 Schedule subcompare to run after the sublist3r scan.
 
 Additionally, I've added the ability to launch sublist3r from within subcompare with the --domain flag. The sublist3r output goes to the newfile, then the main script runs.
+

@@ -1,6 +1,0 @@
-www.example.com
-subs.example.com
-temp.example.com
-testing.example.com
-users.example.com
-moar.example.com
