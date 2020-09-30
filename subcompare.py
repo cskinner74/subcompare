@@ -20,7 +20,7 @@ parser = argparse.ArgumentParser(description="Track new subdomains")
 parser.add_argument("masterFile", help="Master subdomain list")
 parser.add_argument("newFile", help="New subdomain list")
 parser.add_argument("-d", "--domain", help="Domain to run through sublist3r")
-parser.add_argument("-v", "--verbose", help="Verbose output")
+parser.add_argument("-v", "--verbose", help="Verbose output", action="store_true")
 args = parser.parse_args()
 
 #Intro output
@@ -29,7 +29,6 @@ if args.verbose:
     print("subcompare.py")
     print("By: @thecodyskinner")
     print("********************")
-    print("Track changes in subdomains for a target")
 
 #Run sublist3r
 if args.domain:
