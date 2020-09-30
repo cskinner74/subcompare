@@ -57,7 +57,7 @@ for line in added:
         addLine = open(args.masterFile, 'a')
         addLine.write(line)
         if args.verbose:
-            print(line)
+            print("Added: " + line)
 if newdomains != 0:
     if args.verbose:
         print("New subdomains found, pushing to Slack")
