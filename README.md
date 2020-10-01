@@ -3,6 +3,9 @@
 A simple tool that can be scheduled to run in the background to track changes to target subdomains. Made this to run on a schedule to automate subdomain discovery.
 New subdomains are pushed to a slack webhook.
 
+## Setup
+Before running, copy the config-sample.ini file to config.ini, then fill in the appropriate webhook URL for Slack integration.
+
 ## Usage
 Syntax: `subcompare.py masterfile.txt newfile.txt`
 
