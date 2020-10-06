@@ -34,7 +34,7 @@ if args.verbose:
 if args.domain:
     #Wait to import sublist3r until option is selected, in case sublist3r is not installed
     import sublist3r
-    subdomains = sublist3r.main(args.domain, 0, args.newFile, ports= None, silent=True, verbose=False, enable_bruteforce= False)
+    subdomains = sublist3r.main(args.domain, 0, args.newFile, ports=None, silent=True, verbose=False, enable_bruteforce=False, engines=None)
 
 #Variable setting
 config = configparser.ConfigParser()
