@@ -14,12 +14,16 @@ import requests
 import argparse
 import os
 import configparser
+try:
+    import sublist3r
+except ImportError:
+    pass
 
 #Argument parsing
 parser = argparse.ArgumentParser(description="Track new subdomains")
 parser.add_argument("masterFile", help="Master subdomain list")
 parser.add_argument("newFile", help="New subdomain list")
-parser.add_argument("-d", "--domain", help="Domain to run through sublist3r")
+parser.add_argument("-d", "--domain", help="Domain to run through sublist3r (sublist3r must be installed)")
 parser.add_argument("-v", "--verbose", help="Verbose output", action="store_true")
 args = parser.parse_args()
 
@@ -32,7 +36,11 @@ if args.verbose:
 
 #Run sublist3r
 if args.domain:
-    os.system("sublist3r -d " + args.domain + " -o " + args.newFile)
+    # Check if sublist3r was imported
+    if not 'sublist3r' in dir():
+        print("Sublist3r could not be imported. Skipping sublist3r scan.\n")
+    else:
+        subdomains = sublist3r.main(args.domain, 0, args.newFile, ports=None, silent=True, verbose=False, enable_bruteforce=False, engines=None)
 
 #Variable setting
 config = configparser.ConfigParser()
